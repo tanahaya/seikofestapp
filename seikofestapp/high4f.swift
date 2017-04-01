@@ -12,8 +12,8 @@ class high4f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     var collectionView : UICollectionView!
     
-    let imagename: [String] = ["レゴランド.jpg","THE5MINIUTES.jpg", "クイズ研究会.jpg","プロ野球研究会.jpg", "ろご完成版.png"]
-    let namearray:[String] = ["レゴランド","THE 5 MINIUTES","クイズ研究会","プロ野球研究会","sesda"]
+    let imagename: [String] = ["レゴランド.jpg","THE5MINIUTES.jpg", "クイズ研究会.jpg","プロ野球研究会.jpg", "聖光道場.jpg"]
+    let namearray:[String] = ["レゴランド","THE 5 MINIUTES","クイズ研究会","プロ野球研究会","聖光道場"]
     let content:[String] = ["聖光学院にレゴランドがついに登場⁈圧巻の作品達を見逃すな!","新感覚のリアル脱出ゲームが登場!!探偵となり、殺人現場に隠された謎を解読して密室から脱出セヨ!!与えられた時間はTHE 5 MINUTES"," 一匹の妖怪が日本を徘徊している。すなわち、競技クイズの妖怪である。万国のプロレタリア早押しせよ！","プロ野球を愛する男たちがお届けする、“神ってる”展示をご覧あれ！景品付きストラックアウトもあるよ！","今年はルールブックも配布するので、腕に自信がある方は勿論、初心者の方も気軽にお越しください。"]
     var nownumber :Int = 0
     var detailWindow: UIWindow!
@@ -67,7 +67,7 @@ class high4f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
      Cellの総数を返す
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return imagename.count
     }
     
     /*
@@ -79,6 +79,8 @@ class high4f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell.backgroundColor = UIColor.orange
         
         let ImageView:UIImageView = UIImageView(frame: CGRect(x: 20 + 185 * (indexPath.row % 2)  , y: 20 + 180 * (indexPath.row / 2) , width: 150, height: 150))
+        
+        print(indexPath.row)
         let Image:UIImage = UIImage(named: imagename[indexPath.row])!
         ImageView.image = Image
         self.collectionView.addSubview(ImageView)

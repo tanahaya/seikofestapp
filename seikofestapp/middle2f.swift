@@ -12,7 +12,7 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     var collectionView : UICollectionView!
     
-    let imagename: [String] = ["ポケモンセンターSeiko.jpg","英語劇.PNG", "題名のない音楽喫茶.jpg","AFIs.jpg", "東方聖水精.png", "横浜漫才フィルム.jpg"]
+    let imagename: [String] = ["ポケモンセンターSeiko.jpg","英語劇.jpg", "題名のない音楽喫茶.jpg","AFIs.jpg", "東方聖水精.jpg", "横浜漫才フィルム.jpg"]
     let namearray:[String] = ["ポケモンセンターSeiko","英語劇","題名のない音楽喫茶","AFIs","東方聖水精","横浜漫才フィルム"]
     let content:[String] = ["ポケモンが好きな人も、そうじゃない人も、いくぜ！ゼンリョク！ポケモンセンターSeiko！！","ディズニーならではの世界観を、聖光生の迫真の演技とともにお楽しみください。","生徒による生演奏を聴くことのできる喫茶店です。風薫る季節、音楽と共にゆったりとしたひと時を。","アメコミ映画を中心とする趣味研です！モジュールや再現小物などあります！ぜひ一度足を運んでください！","魔理沙｢『聖氷精(せいこおせい)による幻想郷同好会、始動』らしいぜ｣霊夢｢あら、チルノも聖人になったのね｣","クラスに1人はいるお調子者を全員集めました。漫才・コント・1発芸やってます。皆様の笑顔を楽しみにお待ちしてます！"]
     var nownumber :Int = 0
@@ -79,6 +79,7 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
         cell.backgroundColor = UIColor.orange
         
         let ImageView:UIImageView = UIImageView(frame: CGRect(x: 20 + 185 * (indexPath.row % 2)  , y: 20 + 180 * (indexPath.row / 2) , width: 150, height: 150))
+        print(indexPath.row)
         let Image:UIImage = UIImage(named: imagename[indexPath.row])!
         ImageView.image = Image
         self.collectionView.addSubview(ImageView)

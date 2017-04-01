@@ -12,7 +12,7 @@ class high2f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     var collectionView : UICollectionView!
     
-    let imagename: [String] = ["SeSDA.png","RobotHeaven.jpg", "地理歴史巡検部.jpg", "聖光祭からの脱出.jpg"]
+    let imagename: [String] = ["SeSDA.jpg","RobotHeaven.jpg", "地理歴史巡検部.jpg", "聖光祭からの脱出.jpg"]
     let namearray:[String] = ["SeSDA宇宙センター","Robot Heacen","地理歴史巡検部","聖光祭からの脱出"]
     let content:[String] = ["今年のSeSDAの展示は模型、ローバー、Cansatなど盛りだくさん！是非お越しください。","聖光学院に巻き起こるメカニックムーブメント！様々なロボットを駆使してミッションをクリアしよう！","　見どころは北アフリカ戦線の大ジオラマ！恒例の甲冑着付けも小学生向けに行います。誰でも大歓迎です！","聖光祭中を回り謎を解いてこの聖光祭から脱出せよ!!"]
     var nownumber :Int = 0
@@ -67,7 +67,7 @@ class high2f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
      Cellの総数を返す
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return imagename.count
     }
     
     /*
@@ -79,6 +79,8 @@ class high2f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell.backgroundColor = UIColor.orange
         
         let ImageView:UIImageView = UIImageView(frame: CGRect(x: 20 + 185 * (indexPath.row % 2)  , y: 20 + 180 * (indexPath.row / 2) , width: 150, height: 150))
+        
+        print(indexPath.row)
         let Image:UIImage = UIImage(named: imagename[indexPath.row])!
         ImageView.image = Image
         self.collectionView.addSubview(ImageView)

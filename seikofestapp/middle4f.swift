@@ -12,9 +12,9 @@ class middle4f: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     var collectionView : UICollectionView!
     
-    let imagename: [String] = ["生徒会展示.jpg","藤子F不二雄.png", "数学研究会.JPG"]
+    let imagename: [String] = ["生徒会展示.jpg","藤子F不二雄研究会.jpg", "数学研究会.jpg"]
     let namearray:[String] = ["生徒会","藤子F不二雄研究会","数学研究会"]
-    let content:[String] = ["聖光についてもっと知りたい？！それならここしかない、生徒会展示へ！生徒目線の聖光を紹介します。","君も藤子F不二雄のSF(少し不思議)を体感しよう！新たな発見や感動が君を待っている！",""]
+    let content:[String] = ["聖光についてもっと知りたい？！それならここしかない、生徒会展示へ！生徒目線の聖光を紹介します。","君も藤子F不二雄のSF(少し不思議)を体感しよう！新たな発見や感動が君を待っている！","君を数学の世界へ招待します。"]
     var nownumber :Int = 0
     var detailWindow: UIWindow!
     var detailWindowButton: UIButton!
@@ -67,7 +67,7 @@ class middle4f: UIViewController, UICollectionViewDelegate, UICollectionViewData
      Cellの総数を返す
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return imagename.count
     }
     
     /*
@@ -79,6 +79,8 @@ class middle4f: UIViewController, UICollectionViewDelegate, UICollectionViewData
         cell.backgroundColor = UIColor.orange
         
         let ImageView:UIImageView = UIImageView(frame: CGRect(x: 20 + 185 * (indexPath.row % 2)  , y: 20 + 180 * (indexPath.row / 2) , width: 150, height: 150))
+        
+        print(indexPath.row)
         let Image:UIImage = UIImage(named: imagename[indexPath.row])!
         ImageView.image = Image
         self.collectionView.addSubview(ImageView)

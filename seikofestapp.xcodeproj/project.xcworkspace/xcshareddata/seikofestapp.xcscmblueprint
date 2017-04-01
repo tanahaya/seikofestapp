@@ -1,0 +1,28 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "90EC6B8D506A885386468086A9844D8E6B22A8B8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "90EC6B8D506A885386468086A9844D8E6B22A8B8" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AC5B3BD6-A990-412A-9494-A12E48946567",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "90EC6B8D506A885386468086A9844D8E6B22A8B8" : "Desktop\/seikofestapp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "seikofestapp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "seikofestapp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tanahaya\/seikofestapp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90EC6B8D506A885386468086A9844D8E6B22A8B8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tanahaya\/seikofestapp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90EC6B8D506A885386468086A9844D8E6B22A8B8"
+    }
+  ]
+}
