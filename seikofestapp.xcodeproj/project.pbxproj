@@ -76,6 +76,7 @@
 		9F2BD2E41E8D33E900DC985A /* 79枚目のJOKER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F2BD2B51E8D33E900DC985A /* 79枚目のJOKER.jpg */; };
 		9F2BD2E61E8D34AF00DC985A /* SeSDA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F2BD2E51E8D34AF00DC985A /* SeSDA.jpg */; };
 		9F2BD2E81E8D34DE00DC985A /* 人狼の館.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F2BD2E71E8D34DE00DC985A /* 人狼の館.jpg */; };
+		9F925C811E8FA231003237E5 /* foodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925C801E8FA231003237E5 /* foodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		9F2BD2B51E8D33E900DC985A /* 79枚目のJOKER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "79枚目のJOKER.jpg"; path = "../../Desktop/seikofestapp/images/79枚目のJOKER.jpg"; sourceTree = "<group>"; };
 		9F2BD2E51E8D34AF00DC985A /* SeSDA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SeSDA.jpg; path = ../../Desktop/seikofestapp/images/SeSDA.jpg; sourceTree = "<group>"; };
 		9F2BD2E71E8D34DE00DC985A /* 人狼の館.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "人狼の館.jpg"; path = "../../Desktop/seikofestapp/images/人狼の館.jpg"; sourceTree = "<group>"; };
+		9F925C801E8FA231003237E5 /* foodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = foodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				9F16E3061E0F516700E5CC2C /* AppDelegate.swift */,
 				9F16E3501E0F533F00E5CC2C /* MainTabBarController.swift */,
 				9F16E3351E0F51C500E5CC2C /* displayViewController.swift */,
+				9F925C801E8FA231003237E5 /* foodViewController.swift */,
 				9F16E3381E0F51C500E5CC2C /* timetableViewController.swift */,
 				9F16E3341E0F51C500E5CC2C /* detailViewController.swift */,
 				9F16E3361E0F51C500E5CC2C /* home.png */,
@@ -515,6 +518,7 @@
 				9F16E35C1E0F603100E5CC2C /* high3f.swift in Sources */,
 				9F16E3071E0F516700E5CC2C /* AppDelegate.swift in Sources */,
 				9F16E3451E0F51C500E5CC2C /* timetableViewController.swift in Sources */,
+				9F925C811E8FA231003237E5 /* foodViewController.swift in Sources */,
 				9F16E3411E0F51C500E5CC2C /* detailViewController.swift in Sources */,
 				9F16E34C1E0F51C500E5CC2C /* middle3f.swift in Sources */,
 				9F16E3421E0F51C500E5CC2C /* displayViewController.swift in Sources */,

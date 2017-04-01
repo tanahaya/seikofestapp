@@ -12,21 +12,22 @@ class MainTabBarController: UITabBarController {
 
     
     var displayView: displayViewController!
+    var foodView: foodViewController!
     var timetableView: timetableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         displayView = displayViewController()
         timetableView = timetableViewController()
+        foodView = foodViewController()
         
         displayView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.featured, tag: 1)
-        timetableView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 2)
+        foodView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 2)
+        timetableView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 3)
         
         // タブで表示するViewControllerを配列に格納します。
-        let myTabs = NSArray(objects: displayView!, timetableView!)
+        let myTabs = NSArray(objects: displayView!, foodView!, timetableView!)
         
         // 配列をTabにセットします。
         self.setViewControllers(myTabs as? [UIViewController], animated: false)
