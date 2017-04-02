@@ -8,17 +8,21 @@
 
 import UIKit
 
-class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate{
     
     var collectionView : UICollectionView!
+    var mapImageView: UIImageView!
+    var logoImageView: UIImageView!
     
     let imagename: [String] = ["ポケモンセンターSeiko.jpg","英語劇.jpg", "題名のない音楽喫茶.jpg","AFIs.jpg", "東方聖水精.jpg", "横浜漫才フィルム.jpg"]
     let namearray:[String] = ["ポケモンセンターSeiko","英語劇","題名のない音楽喫茶","AFIs","東方聖水精","横浜漫才フィルム"]
     let content:[String] = ["ポケモンが好きな人も、そうじゃない人も、いくぜ！ゼンリョク！ポケモンセンターSeiko！！","ディズニーならではの世界観を、聖光生の迫真の演技とともにお楽しみください。","生徒による生演奏を聴くことのできる喫茶店です。風薫る季節、音楽と共にゆったりとしたひと時を。","アメコミ映画を中心とする趣味研です！モジュールや再現小物などあります！ぜひ一度足を運んでください！","魔理沙｢『聖氷精(せいこおせい)による幻想郷同好会、始動』らしいぜ｣霊夢｢あら、チルノも聖人になったのね｣","クラスに1人はいるお調子者を全員集めました。漫才・コント・1発芸やってます。皆様の笑顔を楽しみにお待ちしてます！"]
     var nownumber :Int = 0
     var detailWindow: UIWindow!
-    var detailWindowButton: UIButton!
+    var closeButton: UIButton!
     var textView: UITextView!
+    var scrollView: UIScrollView!
+    var pageControl: UIPageControl!
     
     var posX: CGFloat!
     var posY: CGFloat!
@@ -28,7 +32,7 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         
         detailWindow = UIWindow()
-        detailWindowButton = UIButton()
+        closeButton = UIButton()
         
         
         let layout = UICollectionViewFlowLayout()
@@ -92,23 +96,52 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func makeMyWindow(){
         
         // 背景を白に設定する.
-        detailWindow.frame = CGRect(x:0, y:0, width:300, height:500)
+        detailWindow.frame = CGRect(x:0, y:0, width:340, height:500)
         detailWindow.layer.position = CGPoint(x:self.view.frame.width/2, y:self.view.frame.height/2)
-        detailWindow.alpha = 0.9
+        detailWindow.alpha = 1.0
         detailWindow.layer.cornerRadius = 20
         detailWindow.makeKey()
-        
         self.detailWindow.makeKeyAndVisible()
         
-        detailWindowButton.frame = CGRect(x:0, y:0, width:100, height:60)
-        detailWindowButton.backgroundColor = UIColor.orange
-        detailWindowButton.setTitle("Close", for: .normal)
-        detailWindowButton.setTitleColor(UIColor.white, for: .normal)
-        detailWindowButton.layer.masksToBounds = true
-        detailWindowButton.layer.cornerRadius = 20.0
-        detailWindowButton.layer.position = CGPoint(x:self.detailWindow.frame.width/2, y:self.detailWindow.frame.height-50)
-        detailWindowButton.addTarget(self, action: #selector(hide), for: .touchUpInside)
-        self.detailWindow.addSubview(detailWindowButton)
+        //
+        scrollView = UIScrollView(frame: self.view.frame)
+        let pageSize = 2
+        scrollView.showsHorizontalScrollIndicator = false;
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isPagingEnabled = true
+        scrollView.delegate = self
+        scrollView.contentSize = CGSize(width:760 ,height: 0)
+        self.detailWindow.addSubview(scrollView)
+        
+        
+        logoImageView = UIImageView(frame: CGRect(x:50,y:20,width:250,height:250))
+        let logoImage = UIImage(named: imagename[nownumber])
+        logoImageView.image = logoImage
+        scrollView.addSubview(logoImageView)
+        
+        
+        mapImageView = UIImageView(frame: CGRect(x:430,y:20,width:250,height:250))
+        let mapImage = UIImage(named: imagename[nownumber])
+        mapImageView.image = mapImage
+        scrollView.addSubview(mapImageView)
+        //
+        
+        pageControl = UIPageControl(frame: CGRect(x: 120,y: 310,width: 100,height: 50))
+        pageControl.numberOfPages = pageSize
+        pageControl.currentPage = 0
+        pageControl.isUserInteractionEnabled = false
+        self.detailWindow.addSubview(pageControl)
+        //
+        
+        closeButton.frame = CGRect(x:0, y:0, width:100, height:60)
+        closeButton.backgroundColor = UIColor.orange
+        closeButton.setTitle("Close", for: .normal)
+        closeButton.setTitleColor(UIColor.white, for: .normal)
+        closeButton.layer.masksToBounds = true
+        closeButton.layer.cornerRadius = 20.0
+        closeButton.layer.position = CGPoint(x:self.detailWindow.frame.width/2, y:self.detailWindow.frame.height-50)
+        closeButton.addTarget(self, action: #selector(hide), for: .touchUpInside)
+        self.detailWindow.addSubview(closeButton)
         
         let titleLabel:UILabel = UILabel(frame: CGRect(x:10, y:10, width:self.detailWindow.frame.width - 20, height:40))
         titleLabel.backgroundColor = UIColor.white
@@ -120,7 +153,7 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
         titleLabel.text = namearray[nownumber]
         detailWindow.addSubview(titleLabel)
         
-        textView = UITextView(frame: CGRect(x:10, y:60, width:self.detailWindow.frame.width - 40, height:100))
+        textView = UITextView(frame: CGRect(x:10, y:340, width:self.detailWindow.frame.width - 40, height:100))
         textView.backgroundColor = UIColor.clear
         textView.text = content[nownumber]
         textView.font = UIFont.systemFont(ofSize: 15.0)
@@ -134,6 +167,17 @@ class middle2f: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func hide(sender:UIButton) {
         textView.text = ""
         detailWindow.isHidden = true
+        logoImageView.removeFromSuperview()
+        mapImageView.removeFromSuperview()
+        
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        
+        if fmod(scrollView.contentOffset.x, scrollView.frame.maxX) == 0 {
+            // ページの場所を切り替える.
+            pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        }
     }
     
     
